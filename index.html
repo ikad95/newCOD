@@ -1,0 +1,1018 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+	<script src="js/jquery.min.js" type="text/javascript"></script>
+
+<head>
+
+	<!-- Basic Page Needs
+	================================================== -->
+	<meta charset="utf-8">
+    <title>CareODrive</title>
+    <meta name="description" content="">	
+	<meta name="author" content="">
+
+	<!-- Mobile Specific Metas
+	================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- Favicons
+	================================================== -->
+	<link rel="icon" href="img/favicon/favicon-32x32.html" type="image/x-icon" />
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/favicon/favicon-144x144.html">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/favicon/favicon-72x72.html">
+	<link rel="apple-touch-icon-precomposed" href="img/favicon/favicon-54x54.html">
+	
+	<!-- CSS
+	================================================== -->
+	
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<!-- Template styles-->
+	<link rel="stylesheet" href="css/style.css">
+	<!-- Responsive styles-->
+	<link rel="stylesheet" href="css/responsive.css"> 
+	<!-- FontAwesome -->
+	<!-- Animation -->
+	<link rel="stylesheet" href="css/animate.css">
+	<!-- Prettyphoto -->
+	<link rel="stylesheet" href="css/prettyPhoto.css">
+	<!-- Owl Carousel -->
+	<link rel="stylesheet" href="css/owl.carousel.css">
+	<link rel="stylesheet" href="css/owl.theme.css">
+	<!-- Flexslider -->
+	<link rel="stylesheet" href="css/flexslider.css">
+	
+	<link id="bsdp-css" href="css/bootstrap-datepicker3.css" rel="stylesheet">
+	<!-- Style Swicther -->
+	<link id="style-switch" href="css/presets/preset3.css" media="screen" rel="stylesheet" type="text/css">
+
+	<!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+	
+<body>
+
+	<!-- Style switcher start -->
+	<div class="style-switch-wrapper">
+		<h3>Style Options</h3>
+		<button id="preset1" class="btn btn-sm btn-primary"></button>
+		<button id="preset2" class="btn btn-sm btn-primary"></button>
+		<button id="preset3" class="btn btn-sm btn-primary"></button>
+		<button id="preset4" class="btn btn-sm btn-primary"></button>
+		<button id="preset5" class="btn btn-sm btn-primary"></button>
+		<button id="preset6" class="btn btn-sm btn-primary"></button>
+		<br/><br/>
+		<a class="btn btn-sm btn-primary close-styler pull-right">Close X</a>
+	</div>
+	<!-- Style switcher end -->
+
+	<div class="body-inner">
+	<!-- Header start -->
+	<header id="header" class="navbar-fixed-top" role="banner" style="height:55px;">
+		<div class="container">
+			<div class="row">
+				<!-- Logo start -->
+				<div class="navbar-header">
+				    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				        <span class="sr-only">Toggle navigation</span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				    </button>
+				    <div class="navbar-brand">
+					    <a href="index.html">
+					    	<img class="img-responsive col-md-10" src="images/logo.png" alt="logo" >
+					    </a> 
+				    </div>                   
+				</div><!--/ Logo end -->
+				<div id="topnav">
+				<nav class="collapse navbar-collapse clearfix" role="navigation" >
+					<ul class="nav navbar-nav navbar-right">
+						<li ><a class="page-scroll" id="login" data-toggle="modal" data-target="#myModal" href="#" onclick="typeModal(1)" tabindex="0">Sign in</a></li>
+						<li ><a class="page-scroll" id="login" data-toggle="modal" data-target="#myModal" href="#" onclick="typeModal()" tabindex="0">Sign up</a></li>
+
+						<li hidden><a class="page-scroll" id="logout" href="#" onclick="logout()">Sign out</a></li>
+					</ul>
+				</nav><!--/ Navigation end -->
+				</div>
+			</div><!--/ Row end -->
+		</div><!--/ Container end -->
+	<div id="here" class="navbar-right" style="height:50px;"></div>
+	</header><!--/ Header end -->
+
+
+<div id="myModal" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content">
+		    <div class="modal-header">
+			    <button type="button" class="close" data-dismiss="modal">&#2715;</button>
+			</div>
+		    <div class="modal-body">
+				<div class="tabbable">
+					<ul class="nav nav-tabs only">
+						<li id="loginTab" class="active"><a href="#tab1" data-toggle="tab" onclick="typeModal(1)">Sign in</a></li>
+						<li id="signUptab" ><a href="#tab2" data-toggle="tab" onclick="typeModal(0)">Signup</a></li>
+					</ul>
+					<div class ="tab-content">
+						<div class="tab-pane active" id="tab1">
+							<div class="col-md-6">
+								<label for="mobile">Mobile(+91)</label>
+								<input class="form-control" type="text" name="mobile" id="mobileLogin" style="height:40px;" oninvalid="setCustomValidity('Please enter a 10 digit mobile number')" pattern='\d{10}' required />
+								<label for="password">Password</label>
+								<input class="form-control" type="password" name="password" id="passwordLogin" style="height:40px;" required />
+								<button class="btn btn-CareODrive" onclick="isLoggedIn()" data-dismiss="modal">Sign in</button>
+							    <br>
+							</div>
+							<!--
+							<div class="col-md-2">
+						      	<br>
+						      	<br>
+						      	<br>
+						      	<div>
+							      	<strong>Or</strong>
+				    	   	 	</div>
+							</div>
+								
+								-->
+								<div class="col-md-6">
+									<br>
+							       	<a class="btn btn-block btn-social btn-google" href="#" data-dismiss="modal"> <i class="fa fa-google-plus modal-icons"></i> Sign In with Google </a>
+							       	<br>
+							       	<a class="btn btn-block btn-social btn-facebook" href="#" data-dismiss="modal"> <i class="fa fa-facebook modal-icons"></i> Sign In with Facebook </a>
+							  	</div>
+							</div>
+							<div class="tab-pane" id="tab2">
+						    	<label for="name">Name</label>
+						    	<br>
+						    	<input class="form-control" type="text" id="nameR">
+							<label for="mobileSignup">Mobile</label>
+						    	<input class="form-control" type="text" id="mobileSignup"/>
+						    	<label for="email">E-Mail id</label>
+						    	<input class="form-control" type="text" id="emailR"/>
+						    	<label for="password">Password</label>
+					      		<input class="form-control" type="password" id="newpassword"/>
+					      		<label for="confpassword">Confirm Password</label>
+					      		<input class="form-control" type="password" id="confpassword"/>
+					      		<button class="btn btn-CareODrive" onclick="newUser()">Sign up</button>
+					        </div>
+					        <div class="tab-pane" id="tab3">
+					        	<label for="otp" id = "otpl"></label>
+					        	<input name="otp" id="otp" type="text" pattern="\d{4}" required>
+					        	<button class="btn btn-CareODrive" data-dismiss="modal" onclick="verifyOTPRegistered()">Verify OTP</button>
+					        	<br>
+					        	<br>
+					        </div>
+						</div>    			
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- Slider start -->
+	<!-- Slider start -->
+	<section id="home" class="no-padding">	
+
+    	<div id="main-slide" class="ts-flex-slider">
+
+			<div >
+				<ul class="slides">
+					<li>
+
+						<div class="overlay2">
+							<img class="" src="images/slider2/bg1.jpg" alt="slider" style="width:100%">
+						</div>
+						<div class="flex-caption slider-content">
+	                        
+	                        <div class="col-md-12 text-center">
+	                        	<img src="images/logo.png" width="33%"></img>
+	                            <h3 class="animated3" style="font-size:50px;">
+	                            	One touch Chauffeur Services at your doorstep.
+	                            </h3>
+	                        </div>
+	                        <br>
+	                        <br>
+
+<div id="nowhere">
+<div id="map" style="visibility:hidden; color:#f69221;"></div>
+<div id="bookingform2" style="margin: 0px;padding:0px; text-align: center; display:inline-block;">
+<div style="margin: 0px; padding: 0px; display: inline-block;" class="form-horizontal" role="form" id="bookingform" class="col-md-4">
+	<div class="form-group col-md-5">
+    <input id="map-input" onclick="xx(); this.onclick=null;" type="text" placeholder="Enter a location" class="form-control" style="background-color: white;"/>
+    </div>
+    <div class="form-group col-md-2">
+    <input type="text" placeholder="Date" name="Date1" id="Date" required="true" class="form-control" style="background-color:white;"/>
+    <script type="text/javascript">
+    $(function () {
+                $('#Date').datetimepicker();
+            });
+    </script>
+	</div>
+	<div class="form-group col-md-2">
+	<input type="text" placeholder="Time" name="Time" id="Time" onkeyup="check()" onmouseup="check()" required="true" class="form-control" style="background-color:white;">
+	</div>
+	<div class="form-group col-md-2">
+	<button class="btn" style="
+    background-color: #F69221;
+    border: none;
+    color: black;
+    font-weight: 900;
+    padding: 14px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-right:5px;">Book Now</button>
+    </div>
+    <span class="btn-separator" style="content: ' ';
+    display: block;
+    float: left;
+    background: #ADADAD;
+    margin: 0 7px;
+    height: 51px;
+    width: 0px;"></span>
+    <div class="form-group col-md-2">
+<button class="btn" style="
+    background-color: #F69221;
+    border: none;
+    color: black;
+    font-weight: 900;
+    padding: 14px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    ">Book Later</button>
+
+    </div>
+
+<div class="form-group col-md-1" id="close_login" hidden>
+<button class="btn close" >x</button>
+</div>
+</div>
+
+</div>
+</div>
+	                    </div>
+					</li>
+				</ul>
+			</div>
+		</div><!--/ Main slider end -->    	
+
+    </section> <!--/ Slider end -->
+	<!-- About tab start -->
+	<section id="about" class="about angle">
+
+		<div class="container">
+			<div class="row wow fadeInUp">
+				<div class="col-md-12 heading text-center">
+					<span class="icon-pentagon wow bounceIn"><i class="fa fa-meh-o"></i></span>
+					<h2 class="title2">About Us<span class="title-desc">A Quality Experience Team with 4 years experience</span></h2>
+				</div>
+			</div><!-- Title row end-->
+
+			<div class="row">
+				<div class="landing-tab clearfix">
+					<ul class="nav nav-tabs nav-stacked col-md-3 col-sm-5">
+					  	<li class="active">
+					  		<a class="animated fadeIn" href="#tab_a" data-toggle="tab">
+					  			<span class="tab-icon"><i class="fa fa-info"></i></span>
+					  			<div class="tab-info">
+						  			<h3>Who Are We</h3>
+					  			</div>
+					  		</a>
+					  	</li>
+					  	<li>
+						  	<a class="animated fadeIn" href="#tab_b" data-toggle="tab">
+						  		<span class="tab-icon"><i class="fa fa-briefcase"></i></span>
+					  			<div class="tab-info">
+						  			<h3>Our Company</h3>
+					  			</div>
+						  	</a>
+						</li>
+					 	<li>
+						  	<a class="animated fadeIn" href="#tab_c" data-toggle="tab">
+						  		<span class="tab-icon"><i class="fa fa-android"></i></span>
+					  			<div class="tab-info">
+						  			<h3>What We Do</h3>
+					  			</div>
+						  	</a>
+						</li>
+						
+					</ul>
+					<div class="tab-content col-md-9 col-sm-7">
+				        <div class="tab-pane active animated fadeInRight" id="tab_a">
+				        	<i class="fa fa-trophy big"></i>
+				            <h3>We Are Awwared Winning Company</h3> 
+				            <p>Over the year we have lots of experience in our field. In sit amet massa sapien. Vestibulum diam turpis, gravida in lobortis id, ornare a eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sagittis nulla non elit dignissim suscipit. Duis lorem nulla, eleifend.</p>
+				        </div>
+				        <div class="tab-pane animated fadeInLeft" id="tab_b">
+				        	<i class="fa fa-briefcase big"></i>
+				            <h3>We Have Worldwide Business</h3> 
+							<p>Helvetica cold-pressed lomo messenger bag ugh. Vinyl jean shorts Austin pork belly PBR retro, Etsy VHS kitsch actually messenger bag pug. Pbrb semiotics try-hard, Schlitz occupy dreamcatcher master cleanse Marfa Vice tofu. </p>							 
+				        </div>
+				        <div class="tab-pane animated fadeIn" id="tab_c">
+				            <i class="fa fa-android big"></i>
+				            <h3>We Build Readymade Applications</h3> 
+				            <p>Over the year we have lots of experience in our field. In sit amet massa sapien. Vestibulum diam turpis, gravida in lobortis id, ornare a eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sagittis nulla non elit dignissim suscipit. Duis lorem nulla, eleifend.</p>
+				        </div>
+				        <div class="tab-pane animated fadeIn" id="tab_d">
+				            <i class="fa fa-pagelines big"></i>
+				            <h3>Clean and Modern Design</h3> 
+				            <p>Over the year we have lots of experience in our field. In sit amet massa sapien. Vestibulum diam turpis, gravida in lobortis id, ornare a eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sagittis nulla non elit dignissim suscipit. Duis lorem nulla, eleifend.</p>
+				        </div>
+				        <div class="tab-pane animated fadeIn" id="tab_e">
+				            <i class="fa fa-support big"></i>
+				            <h3>24/7 Dedicated Support</h3> 
+				            <p>Occupy selfies Tonx, +1 Truffaut beard organic normcore tilde flannel artisan squid cray single-origin coffee. Master cleanse vinyl Austin kogi, semiotics skateboard fap wayfarers health goth. Helvetica cray church-key hashtag Carles. Four dollar toast meggings seitan, Tonx pork belly VHS Bushwick. Chambray banh mi cornhole. Locavore messenger bag seitan.</p>
+				        </div>
+					</div><!-- tab content -->
+	    		</div><!-- Overview tab end -->
+			</div><!--/ Content row end -->
+		</div><!-- Container end -->
+    </section><!-- About end -->
+
+	<!-- Portfolio start -->
+	<section id="portfolio" class="portfolio">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 heading text-center">
+					<span class="icon-pentagon wow bounceIn"><i class="fa fa-suitcase"></i></span>
+					<h2 class="title2">How it works
+						<span class="title-desc"></span>
+					</h2>
+				</div>
+			</div> <!-- Title row end -->
+			
+			<div class="row">
+				<div>
+
+
+				</div><!-- Isotope content end -->
+				<div >
+
+					<div class="col-md-6 team wow slideInLeft">
+						<div class="grid" style="text-align:right; margin-bottom:100px;">
+							<br>
+							<h2 style="color:#f69221;font-weight:500;">Summon a private driver for your car in just a few taps, at your doorstep.</h2>
+							<h3 style="color:#1e1e1e;font-weight:400;font-size:18px;color:#223840;">Get nearby CareODrive drivers to arrive at your doorstep anytime.</h3>
+						</div>
+					</div><!-- Isotope item end -->
+
+				</div><!-- Isotope content end -->
+				<div >
+					<div class="col-md-6 team wow slideInRight">
+						<div class="col-md-4"></div>
+						<div class="grid col-md-4" style="margin-bottom:100px;width:400px;">
+							<figure class="effect-oscar" style="text-align:centre">
+								<img src="images/steps/step1.png" style="background-color:#f5f5f5;" alt="">
+												
+							</figure>
+						</div>
+					</div><!-- Isotope item end -->
+
+				</div><!-- Isotope content end -->
+
+				<div>
+					<div class="col-md-6 team wow slideInLeft">
+						<div class="col-md-4"></div>
+						<div class="grid col-md-4" style="width:350px;">
+							<figure class="effect-oscar">
+								<img src="images/steps/step2.png" style="background-color:#f5f5f5" alt="">			
+							</figure>
+						</div>
+					</div><!-- Isotope item end -->
+				</div><!-- Isotope content end -->
+				
+				<div >
+					<div class="col-md-6 team wow slideInRight">
+						<div class="grid" style="margin-bottom:100px;">
+							<br>
+							<h2 style="color:#f69221;font-weight:500;" >Our experienced drivers gives you the utmost leisure to enjoy the ride.</h2>
+							<h3 style="color:#1e1e1e;font-weight:400;font-size:18px;color:#223840;">A CareODrive chauffeur will take care of you along with your car as long as you want the hassle free services.</h3>
+						</div>
+					</div><!-- Isotope item end -->
+				</div>
+			 	</div>
+			 	<div class="row">
+			 		<div class="col-md-6 team wow slideInLeft ">
+						<div class="grid" style="text-align:right;">
+							<br>
+							<br>
+							<br>
+							<br>
+							<h2 style="color:#f69221;font-weight:500;">Let the Driver know when to end the service and pay via PayTM</h2>
+							<h3 style="color:#1e1e1e;font-weight:400;font-size:18px;color:#223840;">Driver will end the service as per instruction and get the fare summary. Pay cash or go cashless using PayTM.</h3>
+						</div>
+					</div><!-- Isotope item end -->
+
+
+					<div class="col-md-6 team wow slideInRight">
+						<br><br><br>
+						<div class="grid col-md-4" style="margin-bottom:100px;width:274px;">
+							<figure class="effect-oscar">		
+								<img src="images/steps/step3.png" style="background-color:#f5f5f5;" alt="">			
+							</figure>
+						</div>
+					</div><!-- Isotope item end -->
+			 	</div>
+			</div><!-- Content row end -->
+		</div><!-- Container end -->
+	</section><!-- Portfolio end -->
+
+	<!-- Service box start -->
+	<section id="service" class="service">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 heading text-center">
+					<span class="icon-pentagon wow bounceIn"><i class="fa fa-cogs"></i></span>
+					<h2 class="title2">Prime Locations in Kolkata
+						<span class="title-desc"></span>
+					</h2>
+				</div>
+			</div><!-- Title row end -->
+
+			<div class="row">
+				<div class="col-md-12">
+					<div class="col-md-4">
+						<ul id="north"style="list-style-type:none;font-size:20px;font-family:roboto;color:#f69221;text-align:right;">
+							<li id="l1"><t id="place1">New Town</t><img src="img/marker2.png" style="width:6%;"></img>&nbsp &nbsp &nbsp &nbsp &nbsp</li>
+							<br>
+							<li id="l2"> <t id="place2">Rajarhat</t> <img src="img/marker2.png" style="width:6%;"></img>&nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp&nbsp &nbsp</li>
+							<br>
+							<li id="l3"> <t id="place3">NagerBazar</t> <img src="img/marker2.png" style="width:6%;"></img>&nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp&nbsp &nbsp</li>
+							<br>
+							<li> <t id="place4">Bangur</t> <img src="img/marker2.png" style="width:6%;"></img> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</li>
+							<br>
+							<li> <t id="place5">Lake Town</t> <img src="img/marker2.png" style="width:6%;"></img>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp</li>
+							<br>
+							<li> <t id="place6">Salt Lake</t> <img src="img/marker2.png" style="width:6%;"></img>&nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp</li>
+							<br>
+							<li> <t id="place7">Girish Park</t> <img src="img/marker2.png" style="width:6%;"></img>&nbsp &nbsp &nbsp &nbsp &nbsp</li>
+							<li> <t id="place8" hidden></t></li>
+							<li> <t id="place9" hidden></t></li>
+							<li> <t id="place10" hidden></t></li>
+
+							<br>
+						</ul>	
+					</div>
+					<div class="col-md-4 col-sm-3 wow fadeInDown" data-wow-delay=".5s" style="width:800px; margin:0 auto;">
+						<div class="service-content text-center">
+							<img id="wheel" src="images/chauffersm.png" style="height:250px;"></img>
+							<!--<h3>Chauffeur Services</h3>
+							<p>Don't feel like driving and in need of driver assitance, choose our on demand chauffeur service. We send skilled drivers at your doorstep on an hourly basis for as long as you require. Completely hassle free.</p>
+							<p>Our services are also active during the night. Pay an additional amount of Rs. 150 after 10 p.m.</p>-->
+						</div>
+					</div><!--/ End first service -->
+					
+					<div class="col-md-4">
+						<ul id="south" style="list-style-type:none;font-size:20px;font-family:roboto;color:#f69221;font-weight:500;text-align-left;">
+							
+							<li id="l4"> &nbsp &nbsp<img src="img/marker2.png" style="width:6%;"></img><t id="place11"> Kakurgachi</t></li>
+							<br>
+							<li id="l5"> &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp<img src="img/marker2.png" style="width:6%;"></img><t id="place12"> Park Circus</t></li>
+							<br>
+							<li id="l6"> &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp<img src="img/marker2.png" style="width:6%;"></img><t id="place13"> Park Street</t></li>
+							<br>
+							<li> &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp&nbsp<img src="img/marker2.png" style="width:6%;"></img><t id="place14"> Forum</t></li>
+							<br>
+							<li> &nbsp &nbsp &nbsp&nbsp &nbsp&nbsp &nbsp &nbsp<img src="img/marker2.png" style="width:6%;"></img><t id="place15"> Alipore</t></li>
+							<br>
+							<li> &nbsp &nbsp&nbsp &nbsp&nbsp&nbsp <img src="img/marker2.png" style="width:6%;"></img><t id="place16"> South City</t></li>
+							<br>
+							<li> &nbsp &nbsp<img src="img/marker2.png" style="width:6%;"></img><t id="place17"> Gariahat</t></li></div>
+							<li id="place18" hidden></li>
+							<li id="place19" hidden></li>
+							<li id="place20" hidden></li>
+						</ul>
+				</div>
+			</div><!-- Content row end -->
+		</div><!--/ Container end -->
+	</section><!--/ Service box end -->
+	<!-- Counter Strat -->
+	<section class="ts_counter parallax parallax1">
+		<div class="parallax-overlay"></div>
+		<div class="container">
+			<div class="row wow fadeInLeft">
+				<div class="col-md-3 col-sm-6">
+					<div class="facts text-center">
+						<i class="fa fa-user"></i>
+						<div class="facts-num">
+							<span class="counter">1200</span>
+						</div>
+						<h3>Clients</h3> 
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6">
+					<div class="facts text-center">
+						<i class="fa fa-send"></i>
+						<div class="facts-num">
+							<span class="counter">1277</span>
+						</div>
+						<h3>Item Sold</h3> 
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6">
+					<div class="facts text-center">
+						<i class="fa fa-suitcase"></i>
+						<div class="facts-num">
+							<span class="counter">869</span>
+						</div>
+						<h3>Projects</h3> 
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6">
+					<div class="facts text-center">
+						<i class="fa fa-trophy"></i>
+						<div class="facts-num">
+							<span class="counter">76</span>
+						</div>
+						<h3>Awwards</h3> 
+					</div>
+				</div>
+			</div>
+		</div><!--/ Container end -->
+    </section><!--/ Counter end -->
+
+	<!-- Team start -->
+	<section id="team" class="team">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-15 heading text-center">
+					<span class="icon-pentagon wow bounceIn"><i class="fa fa-weixin"></i></span>
+					<h2 class="title2">Our Team 
+						<span class="title-desc"></span>
+					</h2>
+				</div>
+			</div><!-- Title row end -->
+
+			<div class="row text-center">
+				<div class="col-md-6 col-sm-6">
+					<div class="team wow slideInLeft">
+						<div class="img-hexagon">
+							<img src="images/team/team (1).jpg" alt="">
+							<span class="img-top"></span>
+							<span class="img-bottom"></span>
+						</div>
+						<div class="team-content">
+							<h3>Dinesh Agarwal</h3>
+							<p>Co founder</p>
+							<div class="team-social">
+								<a class="fb" href="https://www.facebook.com/agarwal.dinoo" target="_blank"><i class="fa fa-facebook"></i></a>
+								<a class="twt" href="#" target="_blank"><i class="fa fa-twitter"></i></a>
+								<a class="gplus" href="https://plus.google.com/111538761110174463367" target="_blank"><i class="fa fa-google-plus"></i></a>
+								<a class="linkdin" href="https://www.linkedin.com/in/dinesh-agarwal-9466b949" target="_blank"><i class="fa fa-linkedin"></i></a>
+							</div>
+						</div>
+					</div>
+				</div><!--/ Team 2 end -->
+				<div class="col-md-6 col-sm-6">
+					<div class="team wow slideInRight">
+						<div class="img-hexagon">
+							<img src="images/team/team (2).jpg" alt="">
+							<span class="img-top"></span>
+							<span class="img-bottom"></span>
+						</div>
+						<div class="team-content">
+							<h3>Abhishek Jhunjhunwala</h3>
+							<p>Co founder</p>
+							<div class="team-social">
+								<a class="fb" href="https://www.facebook.com/abhishek.jhunjhunwala.39" target="_blank"><i class="fa fa-facebook"></i></a>
+								<a class="twt" href="#" target="_blank"><i class="fa fa-twitter"></i></a>
+								<a class="gplus" href="https://plus.google.com/+abhishekjhunjhunwala2794" target="_blank"><i class="fa fa-google-plus"></i></a>
+								<a class="linkdin" href="https://www.linkedin.com/in/abhishekjhunjhunwala" target="_blank"><i class="fa fa-linkedin"></i></a>
+							</div>
+						</div>
+					</div>
+				</div><!--/ Team 3 end -->
+			</div><!--/ Content row end -->
+		</div><!--/ Container end -->
+    </section><!--/ Team end -->
+
+    <!-- Parallax 2 start -->
+	<section>
+			<div id="map_static" style="border-top:solid;border-bottom:solid;border-bottom-width:6px;border-top-width:6px; color:#f69221;"></div>
+	</section><!-- Parallax 2 end -->
+
+	<!-- Pricing table start -->
+	<section id="pricing" class="pricing">
+		<div class="container">
+		  	<div class="row">
+				<div class="col-md-12 heading text-center">
+					<span class="icon-pentagon wow bounceIn"><i class="fa fa-university"></i></span>
+					<h2 class="title2">Our Pricing
+						<span class="title-desc"></span>
+					</h2>
+						<span style="font-weight:400;" class="title-desc">Hire your private driver where you pay as low as ₹90/hr </span>
+						<span style="font-weight:400;" class="title-desc">Pay for what you use i.e. ₹1.2/minute.</span>
+						<span style="font-weight:400;" class="title-desc">Our services are also active during the night.</span>
+						<span style="font-weight:400;" class="title-desc">Pay an additional amount of ₹150 after 10 PM</span>
+						<span style="font-weight:400;" class="title-desc">Working Hours -> 7 AM to 10 PM</span>
+						<span style="font-weight:400;" class="title-desc">Night Hours -> 10 AM to 7 PM </span>
+						
+				</div>
+		  	</div><!--/ Title row end -->
+			</div><!--/ Content row end -->
+		</div><!--/  Container end-->
+	</section><!--/ Pricing table end -->
+
+	<!-- Testimonial start-->
+	<section class="testimonial parallax parallax3">
+		<div class="parallax-overlay"></div>
+	  	<div class="container">
+		    <div class="row">
+			    <div id="testimonial-carousel" class="owl-carousel owl-theme text-center testimonial-slide">
+			        <div class="item">
+			          	<div class="testimonial-thumb">
+			            	<img src="images/team/testimonial1.jpg" alt="testimonial">
+			          	</div>
+			          	<div class="testimonial-content">
+				            <p class="testimonial-text">
+				              Lorem Ipsum as their default model text, and a search for ‘lorem ipsum’ will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose. Lorem Ipsum is that it as opposed to using.
+				            </p>
+			            	<h3 class="name">Sarah Arevik<span>Chief Executive</span></h3>
+			          	</div>
+			        </div>
+			        <div class="item">
+			          	<div class="testimonial-thumb">
+			            	<img src="images/team/testimonial2.jpg" alt="testimonial">
+			          	</div>
+				        <div class="testimonial-content">
+				            <p class="testimonial-text">
+				              Lorem Ipsum as their default model text, and a search for ‘lorem ipsum’ will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose. Lorem Ipsum is that it as opposed to using.
+				            </p>
+				            <h3 class="name">Narek Bedros<span>Sr. Manager</span></h3>
+				        </div>
+			        </div>
+			        <div class="item">
+				        <div class="testimonial-thumb">
+				            <img src="images/team/testimonial3.jpg" alt="testimonial">
+				        </div>
+			          	<div class="testimonial-content">
+				            <p class="testimonial-text">
+				              Lorem Ipsum as their default model text, and a search for ‘lorem ipsum’ will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose. Lorem Ipsum is that it as opposed to using.
+				            </p>
+			            	<h3 class="name">Taline Lucine<span>Sales Manager</span></h3>
+			          	</div>
+			        </div>
+			    </div><!--/ Testimonial carousel end-->
+		    </div><!--/ Row end-->
+	  	</div><!--/  Container end-->
+	</section><!--/ Testimonial end-->
+
+	<!-- Recent post start -->
+	<section id="blog" class="blog">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 heading text-center">
+					<span class="icon-pentagon wow bounceIn"><i class="fa fa-pencil"></i></span>
+					<h2 class="title2">Our Blog 
+						<span class="title-desc">We Love to Work with Passion</span>
+					</h2>
+				</div>
+		  	</div><!--/ Title row end -->
+
+		  	<div class="row">
+				<div class="col-md-4 col-sm-6 col-xs-12 wow fadeInDown" data-wow-delay=".5s">
+					<div class="media recent-post">
+						<div class="post-img-wrapper">
+	 						<div class="post-img-overlay">
+								<a class="link" href="blog-item.html"><i class="fa fa-link"></i></a>
+								<a class="view" data-rel="prettyPhoto" href="images/portfolio/portfolio-bg1.jpg"><i class="fa fa-search"></i></a>         
+								<img src="images/blog/blog-small1.jpg" alt="blog" />   
+							</div>
+	 					</div><!-- end image wrapper -->
+						<div class="media-body post-body">
+							<h3><a href="blog-item.html">Website encourages scrolling</a></h3>
+							<p class="post-meta">
+								<span class="post-meta-author">By <a href="#">Junia</a></span>
+								<span class="date">On Sep 21, 2014</span>
+								<span class="post-meta-comments pull-right"><i class="fa fa-comments"></i> <a href="#">27</a></span>
+							</p>
+							<div class="post-excerpt">
+							<p>Quisque sed metus at justo vestibulum congue at et arcu. Maecen pellentesque lobortis ante. Vestibulum quam cursus eget augue purus</p>
+							</div>
+						</div><!--/ end media body -->
+					</div><!--/ end media -->
+	 			</div><!--/ end col-sm-4 -->
+
+	 			<div class="col-md-4 col-sm-6 col-xs-12 wow fadeInDown" data-wow-delay=".8s">
+	 				<div class="media recent-post">
+						<div class="post-img-wrapper">
+	 						<div class="post-img-overlay">
+								<a class="link" href="blog-item.html"><i class="fa fa-link"></i></a>
+								<a class="view" data-rel="prettyPhoto" href="images/portfolio/portfolio-bg2.jpg"><i class="fa fa-search"></i></a>     
+								<img src="images/blog/blog-small2.jpg" alt="blog" />       
+							</div>
+	 					</div><!-- end image wrapper -->
+						<div class="media-body post-body">
+							<h3><a href="blog-item.html">The tibrantly colorful birds of Costa</a></h3>
+							<p class="post-meta">
+								<span class="post-meta-author">By <a href="#">Luna</a></span>
+								<span class="date">On May 24, 2014</span>
+								<span class="post-meta-comments pull-right"><i class="fa fa-comments"></i> <a href="#">06</a></span>
+							</p>
+							<div class="post-excerpt">
+							<p>Quisque sed metus at justo vestibulum congue at et arcu. Maecen pellentesque lobortis ante. Vestibulum quam cursus eget augue purus</p>
+							</div>
+						</div>
+					</div><!--/ end media -->
+	 			</div><!--/ end col-sm-4 -->
+
+	 			<div class="col-md-4 col-sm-6 col-xs-12 wow fadeInDown" data-wow-delay="1.1s">
+	 				<div class="media recent-post">
+	 					<div class="post-img-wrapper">
+	 						<div class="post-img-overlay">
+								<a class="link" href="blog-item.html"><i class="fa fa-link"></i></a>
+								<a class="view" data-rel="prettyPhoto" href="images/portfolio/portfolio-bg3.jpg"><i class="fa fa-search"></i></a>   
+								<img src="images/blog/blog-small3.jpg" alt="blog" />         
+							</div>
+	 					</div><!-- end image wrapper -->
+	 				
+						<div class="media-body post-body">
+							<h3><a href="blog-item.html">Travel on an exciting adventur Gap</a></h3>
+							<p class="post-meta">
+								<span class="post-meta-author">By <a href="#">John</a></span>
+								<span class="date">On Aug 19, 2014</span>
+								<span class="post-meta-comments pull-right"><i class="fa fa-comments"></i> <a href="#">11</a></span>
+							</p>
+							<div class="post-excerpt">
+								<p>Quisque sed metus at justo vestibulum congue at et arcu. Maecen pellentesque lobortis ante. Vestibulum quam cursus eget augue purus.</p>
+							</div>
+						</div>
+					</div><!-- end media -->
+	 			</div><!--/ end col-sm-4 -->
+		  	</div><!--/ Content row end -->
+		</div><!--/ Container end -->
+	</section><!--/ Recent post end -->
+
+	<!-- Clients start -->
+	<section id="clients" class="clients">
+		<div class="container">
+			<div class="row text-center">
+				<h2 class="title">Our Clients <span class="title-desc">We Love to Work with Passion</span></h2>
+			</div>
+			<div class="row wow fadeInLeft">
+		      <div id="client-carousel" class="col-sm-12 owl-carousel owl-theme text-center client-carousel">
+		        <figure class="item client_logo">
+		          <a href="#">
+		            <img src="images/clients/client1.png" alt="client">
+		          </a>
+		        </figure>
+		        <figure class="item client_logo">
+		          <a href="#">
+		            <img src="images/clients/client2.png" alt="client">
+		          </a>
+		        </figure>
+		        <figure class="item client_logo">
+		          <a href="#">
+		            <img src="images/clients/client3.png" alt="client">
+		          </a>
+		        </figure>
+		        <figure class="item client_logo">
+		          <a href="#">
+		            <img src="images/clients/client4.png" alt="client">
+		          </a>
+		        </figure>
+		        <figure class="item client_logo">
+		          <a href="#">
+		            <img src="images/clients/client5.png" alt="client">
+		          </a>
+		        </figure>
+		        <figure class="item client_logo">
+		          <a href="#">
+		            <img src="images/clients/client6.png" alt="client">
+		          </a>
+		        </figure>
+		        <figure class="item client_logo">
+		          <a href="#">
+		            <img src="images/clients/client7.png" alt="client">
+		          </a>
+		        </figure>
+		        <figure class="item client_logo">
+		          <a href="#">
+		            <img src="images/clients/client8.png" alt="client">
+		          </a>
+		        </figure>
+		      </div><!-- Owl carousel end -->
+	    	</div><!-- Main row end -->
+		</div><!--/ Container end -->
+	</section><!--/ Clients end -->
+
+	<!-- Twitter start -->
+	<section id="twitter" class="ts_twitter">
+		<div class="container">
+			<div class="row text-center">
+				<div class="col-md-8 col-md-push-2">
+                    <div class="twitter-feed text-center">
+                        <div class="twitter-icon">
+                            <i class="fa fa-twitter"></i>
+                        </div><!-- twitter-icon end -->
+                        <div class="tweet">
+          					<p>Just watched 'The Guest'. Absolutely bonkers, super-stylish action/thriller/drama/black comedy
+                        		<a href="#" target="_blank" title="Visit this link"></a></p>
+  
+                        </div>                        
+                    </div><!-- twitter-feed end -->
+                </div>
+			</div>
+		</div><!--/ Container end -->
+	</section><!-- Twitter end -->
+	
+	<!-- Contact start -->
+	<section id="contact" class="contact2 parallax parallax4">
+		<div class="parallax-overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 heading text-center">
+					<span class="icon-pentagon wow bounceIn"><i class="fa fa-fax"></i></span>
+					<h2 class="title2">Contact Us 
+						<span class="title-desc">We Love to Work with Passion</span>
+					</h2>
+				</div>
+		  	</div><!--/ Title row end -->
+	    	<div class="row">
+	    		<div class="col-md-7">
+	    			<form id="contact-form" action="http://themewinter.com/html/bizcraft/onepage/contact-form.php" method="post" role="form">
+						<div class="row">
+							<div class="col-md-4">
+								<div class="form-group">
+									<label>Name</label>
+								<input class="form-control" name="name" id="name" placeholder="" type="text" required>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label>Email</label>
+									<input class="form-control" name="email" id="email" 
+									placeholder="" type="email" required>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label>Subject</label>
+									<input class="form-control" name="subject" id="subject" 
+									placeholder="" required>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label>Message</label>
+							<textarea class="form-control" name="message" id="message" placeholder="" rows="10" required></textarea>
+						</div>
+						<div class="text-right"><br>
+							<button class="btn btn-primary white" type="submit">Send Message</button> 
+						</div>
+					</form>
+	    		</div>
+	    		<div class="col-md-5">
+	    			<div class="contact-info">
+		    			<h3>Contact Details</h3>
+			    		<p></p>
+			    		<br>
+			    		<p><i class="fa fa-home info"></i>  1102 Saint Marys, Junction City, KS </p>
+						<p><i class="fa fa-phone info"></i>  +(785) 238-4131 </p>
+						<p><i class="fa fa-envelope-o info"></i>  contact@careodrive.com</p>
+						<p><i class="fa fa-globe info"></i>  www.careodrive.com</p>
+						<div class="gap-20"></div>
+    				</div>
+	    		</div>
+	    	</div>
+		</div>
+	</section><!--/ Contact end -->
+	
+
+	<!-- Footer start -->
+	<section id="footer" class="footer2 angle">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<ul class="social-icon unstyled">
+						<li>
+							<a title="Twitter" href="#">
+								<span class="icon-pentagon wow bounceIn"><i class="fa fa-twitter"></i></span>
+							</a>
+							<a title="Facebook" href="#">
+								<span class="icon-pentagon wow bounceIn"><i class="fa fa-facebook"></i></span>
+							</a>
+							<a title="Google+" href="#">
+								<span class="icon-pentagon wow bounceIn"><i class="fa fa-google-plus"></i></span>
+							</a>
+							<a title="linkedin" href="#">
+								<span class="icon-pentagon wow bounceIn"><i class="fa fa-linkedin"></i></span>
+							</a>
+							<a title="Pinterest" href="#">
+								<span class="icon-pentagon wow bounceIn"><i class="fa fa-pinterest"></i></span>
+							</a>
+							<a title="Skype" href="#">
+								<span class="icon-pentagon wow bounceIn"><i class="fa fa-skype"></i></span>
+							</a>
+							<a title="Dribble" href="#">
+								<span class="icon-pentagon wow bounceIn"><i class="fa fa-dribbble"></i></span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div><!--/ Row end -->
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<div class="copyright-info">
+         			 &copy; Copyright 2015 Craft. <span>All Rights Reserved</span>
+        			</div>
+				</div>
+			</div><!--/ Row end -->
+		   <div id="back-to-top" data-spy="affix" data-offset-top="10" class="back-to-top affix">
+				<button class="btn btn-primary" title="Back to Top" id="con"><i class="fa fa-angle-double-up"></i></button>
+				
+			</div>
+		</div><!--/ Container end -->
+	</section><!--/ Footer end -->
+
+
+
+	<link rel="stylesheet" href="css/bootstrap-social.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	
+	
+	<!-- Javascript Files
+	================================================== -->
+
+	<!-- initialize jQuery Library -->
+	<!--Moment-->
+	<script type="text/javascript" src="js/moment.js"></script>
+	<script type="text/javascript" src="js/rotate.js"></script>
+	<!-- Bootstrap jQuery -->
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<!-- Style Switcher -->
+	<script type="text/javascript" src="js/style-switcher.js"></script>
+	<!-- Owl Carousel -->
+	<script type="text/javascript" src="js/owl.carousel.js"></script>
+	<!-- PrettyPhoto -->
+	<script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>
+	<!-- Bxslider -->
+	<script type="text/javascript" src="js/jquery.flexslider.js"></script>
+	<!-- Isotope -->
+	<script type="text/javascript" src="js/isotope.js"></script>
+	<script type="text/javascript" src="js/ini.isotope.js"></script>
+	<!-- Wow Animation -->
+	<script type="text/javascript" src="js/wow.min.js"></script>
+	<!-- SmoothScroll -->
+	<script type="text/javascript" src="js/smoothscroll.js"></script>
+	<!-- Eeasing -->
+	<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+	<!-- Counter -->
+	<script type="text/javascript" src="js/jquery.counterup.min.js"></script>
+	<!-- Waypoints -->
+	<script type="text/javascript" src="js/waypoints.min.js"></script>
+
+
+	<script type="text/javascript" src="js/transition.js"></script>
+
+	<script type="text/javascript" src="js/collapse.js"></script>
+	<script type="text/javascript" src="js/bootstrap-datepicker.min.js"></script>
+
+
+
+	<!-- Google Map API Key Source -->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARi-L4436mNDH3yv5MD8RodCzFL59HB-o&libraries=places&callback=IinitMap"async defer></script>
+
+	<!-- Doc http://www.mkyong.com/google-maps/google-maps-api-hello-world-example/ -->
+	<!-- Template custom -->
+	<script type="text/javascript" src="js/custom.js"></script>
+
+
+	<!--COD-->
+	<script type="text/javascript" src="js/map.js"></script>
+	<script type="text/javascript" src="js/COD.js"></script>
+<script type="text/javascript">
+	function typeModal(key){
+		if(key === 1){
+			$('#tab1').show();
+			$('#tab2').hide();
+			$('#tab3').hide();
+			$(".only").show();
+			$('#loginTab').addClass('active');
+			$('#signUptab').removeClass('active');
+
+		}
+		else{
+			$('#tab2').show();
+			$('#tab1').hide();
+			$('#tab3').hide();
+			$(".only").show();
+			$('#signUptab').addClass('active');
+			$('#loginTab').removeClass('active');
+		}
+	}
+</script>
+
+	</div><!-- Body inner end -->
+</body>
+
+<!-- Mirrored from themewinter.com/html/bizcraft/onepage/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 21 May 2016 06:56:30 GMT -->
+</html>
